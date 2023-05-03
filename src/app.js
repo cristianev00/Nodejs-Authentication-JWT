@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/auth.routes');
 const verifyToken = require('./middlewares/verifyToken')
+const imageRoutes = require('./routes/image.routes')
 
 // Create a new Express app
 const app = express();
@@ -16,6 +17,6 @@ app.use(cors());
 
 //app.use('/', verifyToken, authRoutes);
 app.use('/',authRoutes);
-
+app.use('/v1', imageRoutes);
 
 module.exports = app;
